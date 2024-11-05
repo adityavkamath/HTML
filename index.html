@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chessboard</title>
+    <style>
+      .chessboard {
+        display: grid;
+        grid-template-columns: repeat(8, 50px);
+        grid-template-rows: repeat(8, 50px);
+      }
+
+      .black,
+      .white {
+        width: 50px;
+        height: 50px;
+      }
+
+      .black {
+        background-color: black;
+      }
+
+      .white {
+        background-color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="chessboard"></div>
+    <script>
+      for (let i = 0; i < 64; i++) {
+        let square = document.createElement("div");
+        let row = Math.floor(i / 8);
+        let column = i % 8;
+        let isEven = (row + column) % 2 === 0;
+        if (isEven) {
+          square.className = "white";
+        } else {
+          square.className = "black";
+        }
+        document.querySelector(".chessboard").appendChild(square);
+      }
+    </script>
+  </body>
+</html>
